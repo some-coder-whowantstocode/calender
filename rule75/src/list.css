@@ -1,0 +1,40 @@
+.list{
+    width: 30vw;
+    height: 40vh;
+    overflow: scroll;
+    margin: 30px;
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
+    padding: 10px;
+}
+.listhead{
+    /* width: 30vw; */
+    margin-top: 4px;
+    background-color: orange;
+    padding: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.l{
+    padding: 10px;
+
+}
+.icon{
+    cursor: pointer;
+}
+.icon:hover{
+    color: gray;
+}
+.top{
+    background-color: rgb(255, 106, 0);
+    color: black;
+    margin-top: 4px;
+    /* background-color: orange; */
+    padding: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+

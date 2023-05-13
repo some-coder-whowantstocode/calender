@@ -1,0 +1,25 @@
+.monthbox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 30%; */
+    margin: 0 5px;
+    margin-bottom: 10px;
+    /* background-color: rgb(255, 153, 0); */
+    /* font-weight: 900; */
+    margin-top: 10px;
+}
+.back{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color:gray;
+    font-size: 1.2rem;
+}
+.next{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: gray;
+    font-size: 1.22rem;
+}

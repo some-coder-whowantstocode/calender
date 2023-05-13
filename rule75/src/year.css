@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Warp&display=swap');
+.yearbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin-bottom: 5px; */
+    font-weight: 700;
+    background-color:rgb(255, 153, 0);
+    padding: 10px;
+}
+.tod{
+    font-size: 2rem;
+    font-family: 'Tilt Warp', cursive;
+    font-weight: lighter;
+    
+}
+.ye{
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30%;
+}
