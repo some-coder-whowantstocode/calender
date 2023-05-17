@@ -1,7 +1,20 @@
 .calender{
-    margin: 30px;
+    /* margin: 30px; */
     width: fit-content;
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);
     padding: 10px;
     /* display: flex; */
+}
+.topapp{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 80vw;
+}
+.fapp{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }

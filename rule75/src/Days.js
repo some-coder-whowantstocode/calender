@@ -1,10 +1,15 @@
 import React, { useEffect, useState, useSyncExternalStore } from 'react'
 import './day.css'
-import { NavLink } from 'react-router-dom'
+import { div } from 'react-router-dom'
 import List from './List'
+import { useDispatch,useSelector } from 'react-redux'
+import  { selectChosenDate, setDateAction, setdate } from './features/counter/Chosendate'
 
 const Days = ({y,m}) => {
 
+  const dispatch = useDispatch()
+
+const chosenDate = useSelector(selectChosenDate)
     // const[space,setspace]=useState(false)
     const[year,setyear]=useState()
     const[month,setmonth]=useState()
@@ -48,7 +53,7 @@ const Days = ({y,m}) => {
         setthu([])
         setfri([])
         setsat([])
-    },[y])
+    },[y,chosenDate])
 
     useEffect((e)=>{
         setmonth(m)
@@ -60,7 +65,7 @@ const Days = ({y,m}) => {
         setthu([])
         setfri([])
         setsat([])
-    },[m])
+    },[m,chosenDate])
 
     useEffect((e)=>{
         const getDaysArray = (year, month)=> {
@@ -105,7 +110,7 @@ const Days = ({y,m}) => {
             
           }
           getDaysArray(year,month)
-    },[month,year])
+    },[month,year,chosenDate])
    
      var space = false;
 
@@ -138,7 +143,7 @@ const Days = ({y,m}) => {
         {change(sun)}
       {
         sun != undefined && sun.map((e)=>(
-          y===yc && cur === Number(e) && m === cm? <NavLink to={'/todo'} state={gd(e)}  className='day red' >{cur}</NavLink>  :<NavLink to='/todo' className='day' state={gd(e)}>{e}</NavLink>
+          y===yc && cur === Number(e) && m === cm? <div to={'/todo'}  onClick={()=>dispatch(setDateAction({payload: (gd(e).toString())}))}  className={localStorage.getItem(gd(e)) ? 'red day green' : 'red' } >{cur}</div>  :<div to='/todo' className={localStorage.getItem(gd(e)) ? 'day green' : 'day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} >{e}</div>
             // console.log(e)
         )) 
       }
@@ -148,7 +153,7 @@ const Days = ({y,m}) => {
         {change(mon)}
       {
       mon != undefined &&  mon.map((e)=>(
-         y===yc && Number(e) === cur && m === cm? <NavLink className='day red'  to='/todo'  state={gd(e)}>{e}</NavLink> :<NavLink className='day'  to='/todo'  state={gd(e)}>{e}</NavLink>
+         y===yc && Number(e) === cur && m === cm? <div className={localStorage.getItem(gd(e)) ? 'red day green' : 'red day' }  to='/todo' onClick={()=>dispatch(setDateAction( (gd(e).toString())))}  >{e}</div> :<div onClick={()=>dispatch(setDateAction( (gd(e).toString())))} className={localStorage.getItem(gd(e)) ? 'day green' : 'day' }  to='/todo'  >{e}</div>
             // console.log(e)
         )) 
       }
@@ -158,7 +163,7 @@ const Days = ({y,m}) => {
         {change(tue)}
       {
         tue != undefined && tue.map((e)=>(
-             y===yc && Number(e) === cur && m === cm? <NavLink className='day red'  to='/todo'  state={gd(e)}>{e}</NavLink> :<NavLink className='day'  to='/todo'  state={gd(e)}>{e}</NavLink>
+             y===yc && Number(e) === cur && m === cm? <div className={localStorage.getItem(gd(e)) ? 'red day green' : 'red day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))}  to='/todo'  >{e}</div> :<div className={localStorage.getItem(gd(e)) ? 'day green' : 'day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div>
             // console.log(e)
         )) 
       }
@@ -168,7 +173,7 @@ const Days = ({y,m}) => {
         {change(wed)}
       {
         wed != undefined && wed.map((e)=>(
-             y===yc && Number(e) === cur && m === cm? <NavLink className='day red'  to='/todo'  state={gd(e)}>{e}</NavLink> :<NavLink className='day'  to='/todo'  state={gd(e)}>{e}</NavLink>
+             y===yc && Number(e) === cur && m === cm? <div className={localStorage.getItem(gd(e)) ? 'red day green' : 'red day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div> :<div className={localStorage.getItem(gd(e)) ? 'day green' : 'day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div>
             // console.log(e)
         )) 
       }
@@ -178,7 +183,7 @@ const Days = ({y,m}) => {
         {change(thu)}
       {
         thu != undefined && thu.map((e)=>(
-             y===yc && Number(e) === cur && m === cm? <NavLink className='day red'  to='/todo'  state={gd(e)}>{cur}</NavLink> :<NavLink className='day'  to='/todo'  state={gd(e)}>{e}</NavLink>
+             y===yc && Number(e) === cur && m === cm? <div className={localStorage.getItem(gd(e)) ? 'red day green' : 'red day' }  to='/todo' onClick={()=>dispatch(setDateAction( (gd(e).toString())))} >{cur}</div> :<div className={localStorage.getItem(gd(e)) ? 'day green' : 'day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div>
             // console.log(e)
         )) 
       }
@@ -188,7 +193,7 @@ const Days = ({y,m}) => {
         {change(fri)}
       {
         fri != undefined && fri.map((e)=>(
-             y===yc && Number(e) === cur && m === cm? <NavLink className='day red'  to='/todo'  state={gd(e)}>{e}</NavLink> :<NavLink className='day'  to='/todo'  state={gd(e)}>{e}</NavLink>
+             y===yc && Number(e) === cur && m === cm? <div className={localStorage.getItem(gd(e)) ? 'red day green' : 'red day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div> :<div className={localStorage.getItem(gd(e)) ? 'day green' : 'day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div>
             // console.log(e)
         )) 
       }
@@ -198,7 +203,7 @@ const Days = ({y,m}) => {
         {change(sat)}
       {
         sat != undefined && sat.map((e)=>(
-             y===yc && Number(e) === cur && m === cm?<NavLink className='day red'  to='/todo'  state={gd(e)}>{e}</NavLink> :<NavLink className='day'  to='/todo'  state={gd(e)}>{e}</NavLink>
+             y===yc && Number(e) === cur && m === cm?<div className={localStorage.getItem(gd(e)) ? 'red day green' : 'red day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div> :<div className={localStorage.getItem(gd(e)) ? 'day green' : 'day' } onClick={()=>dispatch(setDateAction( (gd(e).toString())))} to='/todo'  >{e}</div>
             // console.log(e)
         )) 
       }
